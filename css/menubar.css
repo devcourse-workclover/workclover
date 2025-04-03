@@ -101,7 +101,7 @@
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 5ㄴpx;
+  gap: 5px;
   margin-left: 10px;
   opacity: 0.8;
 }
