@@ -124,15 +124,33 @@
 }
 
 /*휴지통 css trash-list 추가*/
-.trash-list::backdrop {
-  opacity: 0;
+.trash-modal::backdrop {
+  background: rgba(255, 255, 255, 0);
   color: none;
 }
-.trash-list:modal {
-  position: absolute;
-  width: 120px;
-  top: 88%;
-  left: 20.5%;
+.trash-modal:modal {
+  position: fixed;
+  width: 180px;
+  height: 176px;
+  bottom: 0;
+  right: 0;
+  left: 200px;
+  top: 700px;
   border: 1px solid #d7dcd5;
+  border-radius: 4px;
   margin: 0;
+  outline: none;
+  overflow: scroll;
+}
+
+.trash-list {
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+}
+.trash-list li {
+  font-size: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
