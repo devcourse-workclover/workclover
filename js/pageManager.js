@@ -3,13 +3,12 @@ import { getDocuments } from "../apis/getDocuments.js";
 import { viewDocument } from "./document.js";
 
 window.addEventListener("DOMContentLoaded", () => {
+  const newDocumentBtn = document.querySelector(".new-document");
   const addPageBtn = document.querySelector(".add-page-btn");
 
-  addPageBtn.addEventListener("click", async (e) => {
-    e.preventDefault();
-    await addDocument();
-    viewPageList();
-  });
+  addPageBtn.addEventListener("click", addDocumentAction);
+
+  newDocumentBtn.addEventListener("click", addDocumentAction);
 
   viewPageList();
 });
@@ -22,6 +21,12 @@ export async function viewPageList() {
   const documentList = document.querySelector(".document-list");
   documentList.innerHTML = "";
   setPageList(documents, documentList);
+}
+
+async function addDocumentAction(e) {
+  e.preventDefault();
+  await addDocument();
+  viewPageList();
 }
 
 function setPageList(pages, parent) {

@@ -4,8 +4,8 @@ import { viewPageList } from "./pageManager.js";
 
 export async function viewDocument(id) {
   const main = document.querySelector(".document");
-  main.innerHTML = "";
   const data = await getDocument(id);
+  main.innerHTML = "";
   const title = createEditable("title", data);
   const content = createEditable("content", data);
 
