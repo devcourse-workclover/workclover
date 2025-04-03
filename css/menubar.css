@@ -37,7 +37,7 @@
   align-items: center;
   justify-content: space-between;
   padding-left: 20px;
-  padding-right: 55px;
+  padding-right: 70px;
 }
 
 .add-page-btn img {
@@ -49,8 +49,6 @@
   position: relative;
   width: 200px;
   height: 60px;
-  display: flex;
-  align-items: center;
 }
 
 .search-page-input {
@@ -62,6 +60,8 @@
   background-color: #bdd1be;
   font-size: 12px;
   text-align: center;
+  box-sizing: border-box;
+  padding: 0;
 }
 
 .search-page-form img {
@@ -71,6 +71,10 @@
   transform: translateY(-50%);
   width: 20px;
   height: 20px;
+}
+
+.search-page-form:has(input:focus) img {
+  display: none;
 }
 
 /* Work Space 폰트 스타일 */
