@@ -154,4 +154,5 @@
   font-size: 15px;
   overflow-y: scroll;
   resize: none;
+  padding: 10px;
 }
