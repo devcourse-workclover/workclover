@@ -23,7 +23,9 @@ export async function viewDocument(id) {
 
   content.addEventListener(
     "input",
-    debounce(updateDocument(id, null, data.content), 5000)
+    debounce(() => {
+      updateDocument(id, null, content.textContent);
+    }, 5000)
   );
 }
 
@@ -40,7 +42,7 @@ function debounce(callback, delay) {
   return function () {
     clearTimeout(timer);
     timer = setTimeout(() => {
-      console.log(callback);
+      callback();
     }, delay);
   };
 }
