@@ -151,8 +151,31 @@
   display: none;
   margin-left: 15px;
   font-size: 14px;
-  /* border: 1px solid green;ㄴ */
+  border: 1px solid green;
 }
+
+.moreBtn {
+  position: absolute;
+  right: 10px;
+  top: 12px;
+  border: none;
+}
+
+.morebox {
+  border: 1px solid blue;
+  background-color: white;
+  padding: 8px 16px;
+  border-radius: 6px;
+  position: absolute;
+  right: -100px;
+  border: 1px solid gray;
+  /* display: inline-flex; */
+  display: none;
+  gap: 10px;
+  flex-direction: column;
+  z-index: 9999;
+}
+
 .document-sub-list:hover {
   border-radius: 10px;
 }
