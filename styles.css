@@ -4,3 +4,10 @@
 @import './css/menubar.css';
 @import './css/todolist.css';
 @import './css/all-layout.css';
+
+@font-face {
+  font-family: 'KaushanScript';
+  src: url('./assets/fonts/KaushanScript-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
