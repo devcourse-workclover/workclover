@@ -24,9 +24,8 @@
   margin-bottom: 80px;
 }
 
-.add-page-btn,
-.search-page-btn {
-  width: 220px;
+.add-page-btn {
+  width: 200px;
   height: 60px;
   background-color: #bdd1be;
   border: none;
@@ -39,8 +38,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 10px;
-  display: none;
+  gap: 20px;
 }
 
 .search-page-form input {
