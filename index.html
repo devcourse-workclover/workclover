@@ -2,10 +2,9 @@
 <html lang="en">
   <head>
     <link rel="stylesheet" href="styles.css" />
-
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>WorkClover</title>
+    <title>Document</title>
   </head>
 
   <body>
@@ -16,27 +15,36 @@
         <div class="menubar-logo">
           <span class="menubar-logo-text">WorkClover</span>
         </div>
+
         <!-- 메뉴바에 있는 페이지 추가와 검색 버튼 -->
         <div class="menubar-controls">
-          <button class="add-page-btn">페이지 추가</button>
+          <div class="menubar-add">
+            <button class="add-page-btn">
+              <img
+                src="./assets/images/add-icon-black.png"
+                alt="페이지 추가하기 사진" />페이지 추가
+            </button>
+          </div>
+
           <form class="search-page-form">
-            <input type="text" class="search-page-input" placeholder="검색" />
+            <img
+              src="./assets/images/search-icon.png"
+              alt="페이지 검색하기 사진" />
+            <input
+              type="text"
+              class="search-page-input"
+              placeholder="페이지 검색" />
           </form>
         </div>
 
-        <!-- Work Space -->
+        <span class="workspace">Work Space</span>
         <div class="document-list-container">
-          <span>Work Space</span>
-          <ul class="document-list">
-            <ul class="document-sub-list"></ul>
-          </ul>
+          <ul class="document-list"></ul>
         </div>
-
-        <!-- 휴지통 -->
         <div class="menubar-trashbin">
-          <button class="trashbin-icon">
-            <img src="./assets/images/delete-icon.png" alt="휴지통 아이콘" />
-          </button>
+          <div class="trashbin-icon">
+            <img src="./assets/images/delete-icon.png" alt="휴지통" />
+          </div>
           <span>휴지통</span>
         </div>
         <dialog class="trash-modal"><ul class="trash-list"></ul></dialog>
@@ -46,8 +54,8 @@
             <span class="profile-img-background">
               <img src="./assets/images/profile-icon.png" alt="프로필 사진" />
             </span>
+            <span>홍길동</span>
           </div>
-          <p>박서영</p>
         </div>
       </aside>
 
@@ -66,7 +74,6 @@
         <button class="new-document">문서 만들기</button>
       </main>
 
-      <!-- 우측 투두리스트 -->
       <aside class="todolist-container">
         <div class="todolist">
           <button class="todolist-right-btn">
@@ -78,7 +85,6 @@
           </button>
 
           <div class="todolist-menu">
-            <!-- 투두리스트 제목과 추가하기 버튼 -->
             <div class="todolist-top">
               <span class="todolist-top-title">Todo List</span>
 
@@ -102,6 +108,8 @@
                 <form class="todolist-input-box">
                   <input type="text" class="todolist-input" />
                 </form>
+
+                <ul class="todolist-list"></ul>
               </div>
 
               <!-- 삭제 버튼 -->
@@ -126,6 +134,10 @@
 
       <!-- 스크립트 연결 -->
       <script type="module" src="/js/trashcan.js"></script>
+      <script type="module" src="./apis/getDocuments.js"></script>
+      <script src="js/pageManager.js" type="module"></script>
+      <script type="module" src="./js/renderFilteredDocuments.js"></script>
+      <script type="module" src="./js/documentSearch.js"></script>
     </div>
   </body>
 </html>
