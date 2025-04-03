@@ -35,13 +35,19 @@
       <div class="document-list-container">
         <ul class="document-list"></ul>
       </div>
+        <div class="menubar-trashbin">
+          <div class="trashbin-icon">
+            <img src="./assets/images/delete-icon.png" alt="휴지통" />
+          </div>
+          <span>휴지통</span>
+        </div>
 
-      <div class="menubar-profile">
-        <div class="profile-layout">
-          <span class="profile-img-background">
-            <img src="./assets/images/profile-icon.png" alt="프로필 사진" />
-          </span>
-          <span>홍길동</span>
+        <div class="menubar-profile">
+          <div class="profile-layout">
+            <span class="profile-img-background">
+              <img src="./assets/images/profile-icon.png" alt="프로필 사진" />
+            </span>
+            <span>홍길동</span>
         </div>
       </div>
     </aside>
@@ -100,19 +106,22 @@
               <span class="memo-title">memo</span>
             </div>
 
-            <!-- 메모장에 텍스트 입력 -->
-            <textarea name="메모장" id="memo-text-box" maxlength="1000"></textarea>
+              <!-- 메모장에 텍스트 입력 -->
+              <textarea
+                name="메모장"
+                id="memo-text-box"
+                maxlength="1000"
+              ></textarea>
+            </div>
           </div>
         </div>
-      </div>
-    </aside>
+      </aside>
 
-    <!-- 스크립트 연결 -->
-    <script type="module" src="./apis/getDocuments.js"></script>
-    <script src="js/pageManager.js" type="module"></script>
-    <script type="module" src="./js/renderDocuments.js"></script>
-    <script type="module" src="./js/documentSearch.js"></script>
-  </div>
-</body>
-
+      <!-- 스크립트 연결 -->
+      <script type="module" src="./apis/getDocuments.js"></script>
+      <script src="js/pageManager.js" type="module"></script>
+      <script type="module" src="./js/renderFilteredDocuments.js"></script>
+      <script type="module" src="./js/documentSearch.js"></script>
+    </div>
+  </body>
 </html>
