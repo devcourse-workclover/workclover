@@ -21,6 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const dialog = document.querySelector("dialog");
   trashcanButton.addEventListener("click", () => {
     dialog.showModal();
+    // GET 받아오기
   });
   dialog.addEventListener("click", () => {
     dialog.close();

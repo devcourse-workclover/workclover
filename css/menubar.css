@@ -125,15 +125,14 @@
 
 /*휴지통 css trash-list 추가*/
 .trash-list::backdrop {
-  background: opacity 0;
+  opacity: 0;
   color: none;
 }
 .trash-list:modal {
   position: absolute;
   width: 120px;
-  bottom: 20;
-  left: 40;
-  border: none;
-  background: opacity 0;
+  top: 88%;
+  left: 20.5%;
+  border: 1px solid #d7dcd5;
   margin: 0;
 }
