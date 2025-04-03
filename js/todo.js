@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const todoTilte = document.querySelector(".todolist-top");
   const badge = document.querySelector("#todolist-count");
   const addTodo = document.querySelector(".todolist-add-btn");
-
+  const todoList = document.querySelector(".todoList");
   let btnImg = document.querySelector(".todolist-right-icon");
 
   function tabManager() {
@@ -44,20 +44,51 @@ document.addEventListener("DOMContentLoaded", () => {
   buttonClick();
 
   const inputTodo = document.querySelector(".todolist-content");
+  const todoInput = document.querySelector(".todolist-input");
 
   function hideInput() {
     inputTodo.style.display = "none";
   }
 
   hideInput();
-
+  // 추가 버튼 클릭 시 추가창 표시
   addTodo.addEventListener("click", () => {
     inputTodo.style.display = "inline-flex";
   });
-
+  // 엔터 입력 시 추가창 숨김
   document.addEventListener("keydown", (e) => {
     e.preventDefault();
     if (e.key === "Enter") {
+      const item = document.createElement("div");
+      const checkBox = document.createElement("input");
+      checkBox.setAttribute("type", "checkbox");
+      checkBox.classList.add("todolist-icon");
+      const todoText = document.createElement("span");
+      todoText.value = todoInput.vlaue;
+      const removeBtn = document.createElement("button");
+      removeBtn.textContent = "x";
+      removeBtn.classList.add("todolist-delete-btn");
+
+      removeBtn.addEventListener("click", (e) => {
+        e.currentTarget.parentNode.parentNode.removeChild(
+          e.currentTarget.parentNode
+        );
+      });
+
+      checkBox.addEventListener("change", (e) => {
+        if (checkBox.checked) {
+          text.style.textDecorationLine = "line-through";
+        } else {
+          text.style.textDecorationLine = "none";
+        }
+      });
+
+      item.appendChild(checkBox);
+      item.appendChild(todoText);
+      item.appendChild(removeBtn);
+
+      todoList.appendChild(item);
+      todoInput.value = "";
       hideInput();
     }
   });
