@@ -1,5 +1,5 @@
-import { addDocument } from "/apis/addDocument.js";
-import { getDocuments } from "/apis/getDocuments.js";
+import { addDocument } from "../apis/addDocument.js";
+import { getDocuments } from "../apis/getDocuments.js";
 
 window.addEventListener("DOMContentLoaded", () => {
   const addPageBtn = document.querySelector(".add-page-btn");
