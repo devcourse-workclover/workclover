@@ -21,10 +21,10 @@ export async function viewDocument(id) {
     viewPageList();
   });
 
-  // content.addEventListener(
-  //   "input",
-  //   debounce(updateDocument(id, null, data.content), 5000)
-  // );
+  content.addEventListener(
+    "input",
+    debounce(updateDocument(id, null, data.content), 5000)
+  );
 }
 
 function createEditable(cls, data) {
@@ -35,12 +35,12 @@ function createEditable(cls, data) {
   return div;
 }
 
-// function debounce(callback, delay) {
-//   let timer;
-//   return function () {
-//     clearTimeout(timer);
-//     timer = setTimeout(() => {
-//       console.log(callback);
-//     }, delay);
-//   };
-// }
+function debounce(callback, delay) {
+  let timer;
+  return function () {
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      console.log(callback);
+    }, delay);
+  };
+}
