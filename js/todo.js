@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const memo = document.querySelector(".memo");
   const todoArea = document.querySelector(".todolist-box");
   const todoTilte = document.querySelector(".todolist-top");
+  const badge = document.querySelector("#todolist-count");
 
   let btnImg = document.querySelector(".todolist-right-icon");
 
@@ -23,6 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
       memo.style.display = "none";
       todoArea.style.display = "none";
       todoTilte.style.display = "none";
+      badge.style.display = "block";
       btnImg.src = "/workclover/assets/images/todolist-menu-icon.png";
     } else if (currentState == "todolist-container closed") {
       todoTab.classList.remove("closed");
@@ -32,6 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
       memo.style.display = "block";
       todoArea.style.display = "block";
       todoTilte.style.display = "block";
+      badge.style.display = "none";
       btnImg.src = "/workclover/assets/images/arrow-right.png";
     }
   }
