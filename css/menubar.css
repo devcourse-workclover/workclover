@@ -101,7 +101,7 @@
   list-style: none;
   display: flex;
   flex-direction: column;
-  margin-left: 10px;
+  margin-left: 35px;
   opacity: 0.8;
 }
 
@@ -126,7 +126,6 @@
   text-decoration: none;
   border-radius: 5px;
   height: 25px;
-  width: 90%;
   color: rgb(44, 44, 44);
 }
 
@@ -136,7 +135,7 @@
 
 .show-sublist-btn {
   position: absolute;
-  transform: translate(600%, -100%);
+  transform: translate(-180%, -105%);
   background-image: url('../assets/images/chevron-right-icon.png');
   width: 25px;
   height: 25px;
@@ -144,6 +143,7 @@
   background-size: cover;
   cursor: pointer;
   background-color: transparent;
+  border: none;
 }
 
 .document-sub-list {
