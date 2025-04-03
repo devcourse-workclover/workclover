@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const todoTilte = document.querySelector(".todolist-top");
   const badge = document.querySelector("#todolist-count");
   const addTodo = document.querySelector(".todolist-add-btn");
-  const todoList = document.querySelector(".todoList");
+  const todoList = document.querySelector(".todolist-list");
   let btnImg = document.querySelector(".todolist-right-icon");
 
   function tabManager() {
@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
       todoTab.animate({ translate: ["235px", 0] }, tabOption);
 
       memo.style.display = "block";
-      todoArea.style.display = "block";
+      todoArea.style.display = "flex";
       todoTilte.style.display = "block";
       badge.style.display = "none";
       btnImg.src = "/workclover/assets/images/arrow-right.png";
@@ -43,38 +43,100 @@ document.addEventListener("DOMContentLoaded", () => {
 
   buttonClick();
 
-  const inputTodo = document.querySelector(".todolist-content");
+  const inputTodo = document.querySelector(".todolist-input-box");
+  const checkTodo = document.querySelector(".checkbox-todolist");
   const todoInput = document.querySelector(".todolist-input");
 
   function hideInput() {
     inputTodo.style.display = "none";
+    checkTodo.style.display = "none";
   }
 
   hideInput();
   // 추가 버튼 클릭 시 추가창 표시
   addTodo.addEventListener("click", () => {
-    inputTodo.style.display = "inline-flex";
+    inputTodo.style.display = "block";
+    checkTodo.style.display = "block";
   });
   // 엔터 입력 시 추가창 숨김
+
+  // let tasks = [];
+
+  // function addTodoList() {
+  //   const todoText = todoInput.value.trim();
+  //   if (todoText === "") {
+  //     return;
+  //   }
+
+  //   const newTodo = {
+  //     id: Date.now(),
+  //     text: todoText,
+  //     completed: false,
+  //   };
+
+  //   tasks.push(newTodo);
+  //   renderTodo();
+  //   todoInput.value = "";
+  // }
+
+  // function renderTodo() {
+  //   todoList.innerHTML = "";
+  //   tasks.forEach((todo) => {
+  //     const li = document.createElement("li");
+  //     li.textContent = todo.text;
+  //     li.dataset.id = todo.id;
+
+  //     const checkBox = document.createElement("input");
+  //     checkBox.setAttribute("type", "checkbox");
+  //     checkBox.classList.add("todolist-icon");
+
+  //     const removeBtn = document.createElement("button");
+  //     removeBtn.textContent = "x";
+  //     removeBtn.classList.add("todolist-delete-btn");
+
+  //     removeBtn.addEventListener("click", (e) => {
+  //       //   e.currentTarget.parentNode.parentNode.removeChild(
+  //       //     e.currentTarget.parentNode
+  //       //   );
+  //       deleteTodo();
+  //     });
+  //     checkBox.addEventListener("change", (e) => {
+  //       if (checkBox.checked) {
+  //         text.style.textDecorationLine = "line-through";
+  //       } else {
+  //         text.style.textDecorationLine = "none";
+  //       }
+  //     });
+
+  //     todoList.appendChild(li);
+  //     li.appendChild(removeBtn);
+  //   });
+
+  //   function deleteTodo(id) {
+  //     tasks = tasks.filter((todo) => todo.id !== id);
+  //     renderTodo();
+  //   }
+  // }
   document.addEventListener("keydown", (e) => {
     e.preventDefault();
     if (e.key === "Enter") {
       const item = document.createElement("div");
-      const checkBox = document.createElement("input");
-      checkBox.setAttribute("type", "checkbox");
-      checkBox.classList.add("todolist-icon");
+      const checkBox = document.createElement("label");
+      checkBox.classList.add("checkbox-todolist");
       const todoText = document.createElement("span");
-      todoText.value = todoInput.vlaue;
+      todoText.textContent = todoInput.vlaue;
+      // console.log(todoInput.value);
       const removeBtn = document.createElement("button");
       removeBtn.textContent = "x";
       removeBtn.classList.add("todolist-delete-btn");
-
+      removeBtn.style.display = "flex";
+      const checkBoxDesign = document.createElement("span");
+      checkBoxDesign.classList.add("todolist-circle-icon");
       removeBtn.addEventListener("click", (e) => {
         e.currentTarget.parentNode.parentNode.removeChild(
           e.currentTarget.parentNode
         );
       });
-
       checkBox.addEventListener("change", (e) => {
         if (checkBox.checked) {
           text.style.textDecorationLine = "line-through";
@@ -82,11 +144,9 @@ document.addEventListener("DOMContentLoaded", () => {
           text.style.textDecorationLine = "none";
         }
       });
-
       item.appendChild(checkBox);
       item.appendChild(todoText);
       item.appendChild(removeBtn);
-
       todoList.appendChild(item);
       todoInput.value = "";
       hideInput();
