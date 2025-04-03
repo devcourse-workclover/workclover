@@ -32,6 +32,19 @@
   display: block;
 }
 
+.badge {
+  position: absolute;
+  top: 5px;
+  right: 2px;
+  background: #ff0000;
+  color: #fff;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  line-height: 20px;
+  display: none;
+}
+
 /* 투두리스트 제목과 추가하기 버튼 */
 .todolist-top {
   display: flex;
