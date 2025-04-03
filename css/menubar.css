@@ -102,7 +102,9 @@
   list-style: none;
   display: flex;
   flex-direction: column;
-  margin-left: 35px;
+  /* margin-left: 35px; */
+  padding-left: 15px;
+  padding-right: 15px;
   opacity: 0.8;
 }
 
@@ -119,6 +121,7 @@
   padding-bottom: 3px;
   position: relative;
   font-size: 14px;
+  position: relative;
 }
 
 .document-item a {
@@ -128,6 +131,7 @@
   border-radius: 5px;
   height: 25px;
   color: rgb(44, 44, 44);
+  padding-left: 30px;
 }
 
 .document-item a:hover {
@@ -136,7 +140,8 @@
 
 .show-sublist-btn {
   position: absolute;
-  transform: translate(-180%, -105%);
+  position: absolute;
+  left: 0;
   background-image: url('../assets/images/chevron-right-icon.png');
   width: 25px;
   height: 25px;
@@ -152,12 +157,31 @@
   margin-left: 15px;
   font-size: 14px;
 }
-.document-sub-list:hover {
-  border-radius: 10px;
+
+.moreBtn {
+  position: absolute;
+  right: 10px;
+  top: 4px;
+  border: none;
+  background-color: transparent;
 }
 
-.show-sublist-btn {
-  margin-left: 20px;
+.morebox {
+  background-color: white;
+  padding: 8px 16px;
+  border-radius: 6px;
+  position: fixed;
+  left: 200px;
+  border: 1px solid gray;
+  /* display: inline-flex; */
+  display: none;
+  gap: 10px;
+  flex-direction: column;
+  z-index: 999;
+}
+
+.document-sub-list:hover {
+  border-radius: 10px;
 }
 
 /* 메뉴바 프로필 */
