@@ -55,20 +55,22 @@ export async function editTrashDocumentContent(
   title,
   content = null
 ) {
+  const bodyData = { title };
+  if (content !== null) {
+    bodyData.content = content;
+  }
   const response = await fetch(`${BASE_URL}/documents/${documentId}`, {
     method: "PUT",
     headers: {
       "x-username": trashcan,
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({
-      title,
-      content,
-    }),
+    body: JSON.stringify(bodyData),
   });
   if (!response.ok) {
     throw new Error("Network response is not ok!");
   }
+   return await response.json();
 }
 
 export async function getTrashItem(documentId) {
