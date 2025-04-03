@@ -20,6 +20,11 @@ export async function viewDocument(id) {
     await updateDocument(id, title.textContent);
     viewPageList();
   });
+
+  // content.addEventListener(
+  //   "input",
+  //   debounce(updateDocument(id, null, data.content), 5000)
+  // );
 }
 
 function createEditable(cls, data) {
@@ -29,3 +34,13 @@ function createEditable(cls, data) {
   div.classList.add(`document-${cls}`);
   return div;
 }
+
+// function debounce(callback, delay) {
+//   let timer;
+//   return function () {
+//     clearTimeout(timer);
+//     timer = setTimeout(() => {
+//       console.log(callback);
+//     }, delay);
+//   };
+// }
