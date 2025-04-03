@@ -10,12 +10,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const todoArea = document.querySelector(".todolist-box");
   const todoTilte = document.querySelector(".todolist-top");
   const badge = document.querySelector("#todolist-count");
+  const addTodo = document.querySelector(".todolist-add-btn");
 
   let btnImg = document.querySelector(".todolist-right-icon");
 
   function tabManager() {
-    console.log("clicked");
-
     const currentState = todoTab.className;
     if (currentState !== "todolist-container closed") {
       todoTab.classList.add("closed");
@@ -28,7 +27,6 @@ document.addEventListener("DOMContentLoaded", () => {
       btnImg.src = "/workclover/assets/images/todolist-menu-icon.png";
     } else if (currentState == "todolist-container closed") {
       todoTab.classList.remove("closed");
-      console.log("닫혀있습니다");
       todoTab.animate({ translate: ["235px", 0] }, tabOption);
 
       memo.style.display = "block";
@@ -44,6 +42,25 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   buttonClick();
+
+  const inputTodo = document.querySelector(".todolist-content");
+
+  function hideInput() {
+    inputTodo.style.display = "none";
+  }
+
+  hideInput();
+
+  addTodo.addEventListener("click", () => {
+    inputTodo.style.display = "inline-flex";
+  });
+
+  document.addEventListener("keydown", (e) => {
+    e.preventDefault();
+    if (e.key === "Enter") {
+      hideInput();
+    }
+  });
 });
 
 // todolist-closed -> display: block
