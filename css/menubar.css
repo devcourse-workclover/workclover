@@ -93,6 +93,7 @@
 }
 
 .document-list-container {
+  height: 360px;
   overflow-y: auto;
   padding-bottom: 50px;
 }
@@ -110,7 +111,7 @@
   white-space: nowrap;
   overflow: hidden;
   display: inline-block;
-  max-width: calc(80% - 30px); /* 아이콘 공간 확보 (36~40px 추천) */
+  max-width: calc(100% - 20px); /* 아이콘 공간 확보 (36~40px 추천) */
 }
 
 .document-item {
@@ -208,7 +209,7 @@
 .trashbin-icon {
   border: none;
   background-color: transparent;
-  width: 35px;
+  width: 25px;
   height: 25px;
   cursor: pointer;
 }
