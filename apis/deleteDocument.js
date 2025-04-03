@@ -1,4 +1,4 @@
-import { BASE_URL, USERNAME } from "./getDocuments";
+import { BASE_URL, USERNAME } from "./getDocuments.js";
 
 export async function deleteDocument(documentId) {
   const response = await fetch(`${BASE_URL}/documents/${documentId}`, {
