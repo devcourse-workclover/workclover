@@ -1,12 +1,12 @@
 import { getDocuments } from "../apis/getDocuments.js";
-import { renderDocumentList } from "./renderDocuments.js";
+import { renderFilteredDocumentList } from "./renderDocuments.js";
 
 window.addEventListener("DOMContentLoaded", () => {
-  const searchForm = document.querySelector(".search-form");
+  const searchForm = document.querySelector(".search-page-form");
 
   searchForm.addEventListener("submit", (event) => {
     event.preventDefault();
-    const searchInput = document.querySelector(".search-input");
+    const searchInput = document.querySelector(".search-page-input");
     const inputValue = searchInput.value.replace(/\s+/g, "");
 
     searchDocuments(inputValue);
@@ -23,7 +23,7 @@ function searchAllDocuments(data, inputValue) {
     }
     if (document.documents && document.documents.length > 0) {
       const childDocuments = searchAllDocuments(document.documents, inputValue);
-      console.log(childDocuments)
+      console.log(childDocuments);
       filteredList = filteredList.concat(childDocuments);
     }
   }
@@ -34,9 +34,10 @@ export async function searchDocuments(inputValue) {
   const data = await getDocuments();
 
   if (!inputValue) {
-    renderDocumentList(data);
+    // 정수님 함수 써야함
+    renderFilteredDocumentList(data);
   }
   const filteredData = searchAllDocuments(data, inputValue);
 
-  renderDocumentList(filteredData);
+  renderFilteredDocumentList(filteredData);
 }

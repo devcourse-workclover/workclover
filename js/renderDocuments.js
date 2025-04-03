@@ -3,18 +3,24 @@ import { getDocuments } from "../apis/getDocuments.js";
 window.addEventListener("DOMContentLoaded", () => {
   async function fetchData() {
     const data = await getDocuments();
-    renderDocumentList(data);
+    renderFilteredDocumentList(data);
   }
 
   fetchData();
 });
 
-export const renderDocumentList = (data) => {
+export const renderFilteredDocumentList = (data) => {
   const documentList = document.querySelector(".document-list");
   documentList.innerHTML = "";
   data.forEach((item) => {
     const documentItem = document.createElement("li");
-    documentItem.innerText = item.title;
+    const anchorElement = document.createElement("a");
+
+    documentItem.classList.add("document-item");
+    anchorElement.innerText = item.title;
+    anchorElement.href = item.id;
+
+    documentItem.appendChild(anchorElement);
     documentList.appendChild(documentItem);
   });
 };
