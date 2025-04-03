@@ -13,3 +13,16 @@ export async function getDocuments() {
   }
   return await response.json();
 }
+
+export async function getDocument(id) {
+  const response = await fetch(`${BASE_URL}/documents/${id}`, {
+    method: "GET",
+    headers: {
+      "x-username": USERNAME,
+    },
+  });
+  if (!response.ok) {
+    throw new Error("Network response is not ok!");
+  }
+  return await response.json();
+}
