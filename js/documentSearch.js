@@ -15,7 +15,7 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 
 function searchAllDocuments(data, inputValue) {
-  const filteredList = [];
+  let filteredList = [];
 
   for (const document of data) {
     if (document.title.replace(/\s+/g, "").includes(inputValue)) {
@@ -23,8 +23,8 @@ function searchAllDocuments(data, inputValue) {
     }
     if (document.documents && document.documents.length > 0) {
       const childDocuments = searchAllDocuments(document.documents, inputValue);
-      console.log(childDocuments);
-      filteredList.concat(childDocuments);
+      console.log(childDocuments)
+      filteredList = filteredList.concat(childDocuments);
     }
   }
   return filteredList;
