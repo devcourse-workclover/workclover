@@ -10,7 +10,7 @@ export const renderFilteredDocumentList = (data) => {
 
     documentItem.classList.add("document-item");
     anchorElement.innerText = item.title;
-    anchorElement.href = "/" + item.id;
+    anchorElement.href = item.id;
 
     anchorElement.addEventListener("click", (event) => {
       event.preventDefault();

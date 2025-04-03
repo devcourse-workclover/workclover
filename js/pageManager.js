@@ -1,6 +1,7 @@
 import { addDocument } from "../apis/addDocument.js";
 import { getDocuments } from "../apis/getDocuments.js";
 import { viewDocument } from "./document.js";
+import { router } from "./router.js";
 
 window.addEventListener("DOMContentLoaded", () => {
   const newDocumentBtn = document.querySelector(".new-document");
@@ -35,12 +36,13 @@ function setPageList(pages, parent) {
     liElement.classList.add("document-item");
 
     const anchorElement = document.createElement("a");
-    anchorElement.href = "/" + page.id;
+    anchorElement.href = page.id;
     anchorElement.textContent = page.title;
 
     anchorElement.addEventListener("click", (e) => {
       e.preventDefault();
       viewDocument(page.id);
+      router(e);
     });
 
     liElement.append(anchorElement);
