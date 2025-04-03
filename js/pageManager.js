@@ -1,6 +1,24 @@
+import { addDocument } from "/apis/addDocument.js";
 import { getDocuments } from "/apis/getDocuments.js";
 
-const documentList = document.querySelector(".document-list");
+window.addEventListener("DOMContentLoaded", () => {
+  const addPageBtn = document.querySelector(".add-page-btn");
+
+  addPageBtn.addEventListener("click", async (e) => {
+    e.preventDefault();
+    await addDocument();
+    viewPageList();
+  });
+
+  viewPageList();
+});
+
+export async function viewPageList() {
+  const documents = await getDocuments();
+  const documentList = document.querySelector(".document-list");
+  documentList.innerHTML = "";
+  setPageList(documents, documentList);
+}
 
 function setPageList(pages, parent) {
   pages.forEach((page) => {
@@ -35,11 +53,3 @@ function setPageList(pages, parent) {
     }
   });
 }
-
-async function viewPageList() {
-  const documents = await getDocuments();
-  documentList.innerHTML = "";
-  setPageList(documents, documentList);
-}
-
-viewPageList();
