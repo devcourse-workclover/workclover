@@ -1,5 +1,6 @@
 import { addDocument } from "../apis/addDocument.js";
 import { getDocuments } from "../apis/getDocuments.js";
+import { viewDocument } from "./document.js";
 
 window.addEventListener("DOMContentLoaded", () => {
   const addPageBtn = document.querySelector(".add-page-btn");
@@ -31,6 +32,11 @@ function setPageList(pages, parent) {
     const anchorElement = document.createElement("a");
     anchorElement.href = "/" + page.id;
     anchorElement.textContent = page.title;
+
+    anchorElement.addEventListener("click", (e) => {
+      e.preventDefault();
+      viewDocument(page);
+    });
 
     liElement.append(anchorElement);
     parent.append(liElement);
