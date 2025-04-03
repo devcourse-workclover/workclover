@@ -41,20 +41,15 @@
   gap: 20px;
 }
 
-.search-page-form input {
+.search-page-input {
   outline: none;
   border: none;
-  border-bottom: 1px solid #838383;
+  border: 2px solid #bdd1be;
   background-color: transparent;
-}
-
-.search-page-form button {
-  background-color: #bdd1be;
-  border: none;
-  border-radius: 5px;
-  padding: 7px;
+  width: 190px;
+  height: 40px;
+  border-radius: 10px;
   font-size: 10px;
-  cursor: pointer;
 }
 
 /* Work Space 폰트 스타일 */
