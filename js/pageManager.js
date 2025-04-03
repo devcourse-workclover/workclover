@@ -3,6 +3,7 @@ import { getDocuments } from "../apis/getDocuments.js";
 import { updateDocument } from "../apis/updateDocument.js";
 import { deleteDocument } from "../apis/deleteDocument.js";
 import { viewDocument } from "./document.js";
+import { router } from "./router.js";
 import { postTrash } from "../apis/trashCan.js";
 
 window.addEventListener("DOMContentLoaded", () => {
@@ -46,6 +47,7 @@ function setPageList(pages, parent) {
     anchorElement.addEventListener("click", (e) => {
       e.preventDefault();
       viewDocument(page.id);
+      router(e);
     });
 
     // 더보기버튼
