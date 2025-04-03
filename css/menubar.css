@@ -122,3 +122,18 @@
   width: 100%;
   height: 100%;
 }
+
+/*휴지통 css trash-list 추가*/
+.trash-list::backdrop {
+  background: opacity 0;
+  color: none;
+}
+.trash-list:modal {
+  position: absolute;
+  width: 120px;
+  bottom: 20;
+  left: 40;
+  border: none;
+  background: opacity 0;
+  margin: 0;
+}

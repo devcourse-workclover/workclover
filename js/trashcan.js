@@ -1,4 +1,4 @@
-window.document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", () => {
   const trashcanButton = document.querySelector(".menubar-trashbin");
   const trashTitle = document.querySelector(".menubar-trashbin span");
 
@@ -9,15 +9,20 @@ window.document.addEventListener("DOMContentLoaded", () => {
     trashTitle.style.borderBottom = "none";
   });
 
+  //리스트에 삭제된 리스트 get
+  // trashcanButton.addEventListener("click", () => {
+  //   const trashList = document.querySelector(".trashList");
+  //   if ((trashList.style.display = "none")) {
+  //     trashList.style.display = "block";
+  //   } else if ((trashList.style.display = "block")) {
+  //     trashList.style.display = "none";
+  //   }
+  // });
+  const dialog = document.querySelector("dialog");
   trashcanButton.addEventListener("click", () => {
-    const trashDropdown = document.createElement("div");
-    trashcanButton.appendChild(trashDropdown).classList.add("trashList");
-    const trashList = document.querySelector(".trashList");
-
-    trashList.style.display = "block";
+    dialog.showModal();
   });
-  trashcanButton.addEventListener("blur", () => {
-    const trashList = document.querySelector(".trashList");
-    trashList.style.display = "none";
+  dialog.addEventListener("click", () => {
+    dialog.close();
   });
 });
