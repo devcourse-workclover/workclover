@@ -35,6 +35,30 @@
   cursor: pointer;
 }
 
+.search-page-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  display: none;
+}
+
+.search-page-form input {
+  outline: none;
+  border: none;
+  border-bottom: 1px solid #838383;
+  background-color: transparent;
+}
+
+.search-page-form button {
+  background-color: #bdd1be;
+  border: none;
+  border-radius: 5px;
+  padding: 7px;
+  font-size: 10px;
+  cursor: pointer;
+}
+
 /* Work Space 폰트 스타일 */
 .document-list-container span {
   opacity: 0.5;
