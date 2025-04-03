@@ -1,5 +1,6 @@
 import { getDocuments } from "../apis/getDocuments.js";
-import { renderFilteredDocumentList } from "./renderDocuments.js";
+import { renderFilteredDocumentList } from "./renderFilteredDocuments.js";
+import { viewPageList } from "./pageManager.js";
 
 window.addEventListener("DOMContentLoaded", () => {
   const searchForm = document.querySelector(".search-page-form");
@@ -34,8 +35,7 @@ export async function searchDocuments(inputValue) {
   const data = await getDocuments();
 
   if (!inputValue) {
-    // 정수님 함수 써야함
-    renderFilteredDocumentList(data);
+    viewPageList(data);
   }
   const filteredData = searchAllDocuments(data, inputValue);
 
