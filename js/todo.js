@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const sidebarToggle = document.querySelector(".todolist-right-btn"); // 사이드바 닫기 버튼
   const todoTab = document.querySelector(".todolist-container"); // 사이드바
   const tabOption = {
-    duration: 1400,
+    duration: 500,
     easing: "ease",
     fill: "forwards",
   };
@@ -52,7 +52,6 @@ document.addEventListener("DOMContentLoaded", () => {
     checkTodo.style.display = "none";
   }
 
-  hideInput();
   // 추가 버튼 클릭 시 추가창 표시
   addTodo.addEventListener("click", () => {
     inputTodo.style.display = "block";
