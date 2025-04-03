@@ -1,5 +1,5 @@
-import { addDocument } from "../apis/addDocument.js";
-import { getDocuments } from "../apis/getDocuments.js";
+import { addDocument } from "/apis/addDocument.js";
+import { getDocuments } from "/apis/getDocuments.js";
 
 window.addEventListener("DOMContentLoaded", () => {
   const addPageBtn = document.querySelector(".add-page-btn");
@@ -12,6 +12,16 @@ window.addEventListener("DOMContentLoaded", () => {
 
   viewPageList();
 });
+
+export async function viewPageList() {
+  const documents = await getDocuments();
+  if (documents.length === 0) {
+    return;
+  }
+  const documentList = document.querySelector(".document-list");
+  documentList.innerHTML = "";
+  setPageList(documents, documentList);
+}
 
 function setPageList(pages, parent) {
   pages.forEach((page) => {
@@ -33,9 +43,11 @@ function setPageList(pages, parent) {
       button.classList.add("show-sublist-btn");
       button.classList.add("ir");
       button.textContent = "하위 페이지 토글";
+
       button.addEventListener("click", (e) => {
         e.preventDefault();
-        ulElement.classList.toggle("none");
+        ulElement.style.display =
+          ulElement.style.display === "block" ? "none" : "block";
       });
 
       liElement.append(button);
@@ -43,11 +55,4 @@ function setPageList(pages, parent) {
       setPageList(page.documents, ulElement);
     }
   });
-}
-
-export async function viewPageList() {
-  const documents = await getDocuments();
-  const documentList = document.querySelector(".document-list");
-  documentList.innerHTML = "";
-  setPageList(documents, documentList);
 }
