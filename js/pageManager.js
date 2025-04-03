@@ -1,14 +1,14 @@
 import { addDocument } from "../apis/addDocument.js";
 import { getDocuments } from "../apis/getDocuments.js";
+import { viewDocument } from "./document.js";
 
 window.addEventListener("DOMContentLoaded", () => {
+  const newDocumentBtn = document.querySelector(".new-document");
   const addPageBtn = document.querySelector(".add-page-btn");
 
-  addPageBtn.addEventListener("click", async (e) => {
-    e.preventDefault();
-    await addDocument();
-    viewPageList();
-  });
+  addPageBtn.addEventListener("click", addDocumentAction);
+
+  newDocumentBtn.addEventListener("click", addDocumentAction);
 
   viewPageList();
 });
@@ -23,6 +23,12 @@ export async function viewPageList() {
   setPageList(documents, documentList);
 }
 
+async function addDocumentAction(e) {
+  e.preventDefault();
+  await addDocument();
+  viewPageList();
+}
+
 function setPageList(pages, parent) {
   pages.forEach((page) => {
     const liElement = document.createElement("li");
@@ -31,6 +37,11 @@ function setPageList(pages, parent) {
     const anchorElement = document.createElement("a");
     anchorElement.href = "/" + page.id;
     anchorElement.textContent = page.title;
+
+    anchorElement.addEventListener("click", (e) => {
+      e.preventDefault();
+      viewDocument(page.id);
+    });
 
     liElement.append(anchorElement);
     parent.append(liElement);
