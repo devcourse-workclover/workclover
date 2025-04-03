@@ -30,3 +30,23 @@
   background-color: #dcdcdc;
   font-size: 15px;
 }
+
+.document-title {
+  font-size: 50px;
+  opacity: 0.5;
+  outline: none;
+}
+
+.document-title:empty:before {
+  color: #aaa;
+  position: absolute;
+  pointer-events: none;
+}
+
+.document-content {
+  margin-top: 40px;
+  padding-top: 5px;
+  padding-left: 5px;
+  width: 50vw;
+  height: 100vh;
+}
