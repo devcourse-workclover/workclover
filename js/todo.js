@@ -26,41 +26,56 @@ document.addEventListener("DOMContentLoaded", () => {
   function sidebarClosed() {
     todoTab.classList.add("closed");
     todoTab.style.translate = "235px";
+
     memo.style.display = "none";
+
     todoArea.style.display = "none";
+
     todoTilte.style.display = "none";
+
     if (badge.textContent == 0) {
       badge.style.display = "none";
     } else {
       badge.style.display = "block";
     }
+
     btnImg.src = "/workclover/assets/images/todolist-menu-icon.png";
   }
+
   sidebarClosed();
 
   function tabManager() {
     const currentState = todoTab.className;
+
     if (currentState !== "todolist-container closed") {
       todoTab.classList.add("closed");
       todoTab.animate({ translate: [0, "235px"] }, tabOption);
 
       memo.style.display = "none";
+
       todoArea.style.display = "none";
+
       todoTilte.style.display = "none";
+
       if (badge.textContent == "0") {
         badge.style.display = "none";
       } else {
         badge.style.display = "block";
       }
+
       btnImg.src = "/workclover/assets/images/todolist-menu-icon.png";
     } else if (currentState == "todolist-container closed") {
       todoTab.classList.remove("closed");
       todoTab.animate({ translate: ["235px", 0] }, tabOption);
 
       memo.style.display = "block";
+
       todoArea.style.display = "block";
+
       todoTilte.style.display = "block";
+
       badge.style.display = "none";
+
       btnImg.src = "/workclover/assets/images/arrow-right.png";
     }
   }
@@ -87,7 +102,9 @@ document.addEventListener("DOMContentLoaded", () => {
   // 추가 버튼 클릭 시 추가창 표시
   addTodo.addEventListener("click", () => {
     inputTodo.style.display = "block";
+
     checkTodo.style.display = "block";
+
     todoInput.focus();
   });
 
@@ -112,6 +129,7 @@ document.addEventListener("DOMContentLoaded", () => {
       e.currentTarget.parentNode.parentNode.removeChild(
         e.currentTarget.parentNode
       );
+
       setBadgenumber();
     });
 
@@ -121,6 +139,7 @@ document.addEventListener("DOMContentLoaded", () => {
       } else {
         todoText.style.textDecorationLine = "none";
       }
+
       setBadgenumber();
     });
     item.appendChild(checkBox);
@@ -163,10 +182,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
   enterDown();
 
-  todoInput.addEventListener("change", () => {
+  todoInput.onblur = function () {
     hideInput();
+  };
+
+  todoInput.addEventListener("change", () => {
     inputManager();
   });
+
   // document.addEventListener("keydown", (e) => {
   //   if (e.key === "Enter") {
   //     // e.preventDefault();
@@ -208,46 +231,46 @@ document.addEventListener("DOMContentLoaded", () => {
   // todoInput.addEventListener("change", updateValue);
 
   // function updateValue(e) {
-  //   // e.preventDefault();
-  //   // const item = document.createElement("li");
-  //   // const checkBox = document.createElement("input");
-  //   // checkBox.setAttribute("type", "checkbox");
-  //   // checkBox.classList.add("todolist-icon");
-  //   // const todoText = document.createElement("span");
-  //   // todoText.textContent = todoInput.value;
-  //   // const removeBtn = document.createElement("button");
-  //   // removeBtn.textContent = "x";
-  //   // removeBtn.classList.add("todolist-delete-btn");
-  //   // const checkBoxDesign = document.createElement("span");
-  //   // checkBoxDesign.classList.add("todolist-circle-icon");
-  //   // removeBtn.addEventListener("click", (e) => {
-  //   //   e.currentTarget.parentNode.parentNode.removeChild(
-  //   //     e.currentTarget.parentNode
-  //   //   );
-  //   //   setBadgenumber();
-  //   // });
-  //   // checkBox.addEventListener("change", (e) => {
-  //   //   if (checkBox.checked) {
-  //   //     todoText.style.textDecorationLine = "line-through";
-  //   //   } else {
-  //   //     todoText.style.textDecorationLine = "none";
-  //   //   }
-  //   //   setBadgenumber();
-  //   // });
-  //   // item.appendChild(checkBox);
-  //   // item.appendChild(todoText);
-  //   // item.appendChild(removeBtn);
-  //   // item.appendChild(checkBoxDesign);
-  //   // item.addEventListener("mouseover", (e) => {
-  //   //   removeBtn.style.display = "inline-block";
-  //   // });
-  //   // item.addEventListener("mouseleave", (e) => {
-  //   //   removeBtn.style.display = "none";
-  //   // });
-  //   // todoList.appendChild(item);
-  //   // todoInput.value = "";
-  //   // hideInput();
-  //   // setBadgenumber();
+  //   e.preventDefault();
+  //   const item = document.createElement("li");
+  //   const checkBox = document.createElement("input");
+  //   checkBox.setAttribute("type", "checkbox");
+  //   checkBox.classList.add("todolist-icon");
+  //   const todoText = document.createElement("span");
+  //   todoText.textContent = todoInput.value;
+  //   const removeBtn = document.createElement("button");
+  //   removeBtn.textContent = "x";
+  //   removeBtn.classList.add("todolist-delete-btn");
+  //   const checkBoxDesign = document.createElement("span");
+  //   checkBoxDesign.classList.add("todolist-circle-icon");
+  //   removeBtn.addEventListener("click", (e) => {
+  //     e.currentTarget.parentNode.parentNode.removeChild(
+  //       e.currentTarget.parentNode
+  //     );
+  //     setBadgenumber();
+  //   });
+  //   checkBox.addEventListener("change", (e) => {
+  //     if (checkBox.checked) {
+  //       todoText.style.textDecorationLine = "line-through";
+  //     } else {
+  //       todoText.style.textDecorationLine = "none";
+  //     }
+  //     setBadgenumber();
+  //   });
+  //   item.appendChild(checkBox);
+  //   item.appendChild(todoText);
+  //   item.appendChild(removeBtn);
+  //   item.appendChild(checkBoxDesign);
+  //   item.addEventListener("mouseover", (e) => {
+  //     removeBtn.style.display = "inline-block";
+  //   });
+  //   item.addEventListener("mouseleave", (e) => {
+  //     removeBtn.style.display = "none";
+  //   });
+  //   todoList.appendChild(item);
+  //   todoInput.value = "";
+  //   hideInput();
+  //   setBadgenumber();
   // }
 
   function setBadgenumber() {
