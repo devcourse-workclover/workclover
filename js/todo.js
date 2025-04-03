@@ -1,30 +1,41 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const sidebarToggle = document.querySelector(".todolist-right-btn"); // 사이드바 닫기 버튼
-  const todoTab = document.querySelector(".todolist-container"); // 사이드바
+  const sidebarToggle = document.querySelector(".todolist-right-btn");
+
+  const todoTab = document.querySelector(".todolist-container");
+
   const tabOption = {
     duration: 500,
     easing: "ease",
     fill: "forwards",
   };
+
   const memo = document.querySelector(".memo");
+
   const todoArea = document.querySelector(".todolist-box");
+
   const todoTilte = document.querySelector(".todolist-top");
+
   const badge = document.querySelector("#todolist-count");
+
   const addTodo = document.querySelector(".todolist-add-btn");
+
   const todoList = document.querySelector(".todolist-list");
+
   let btnImg = document.querySelector(".todolist-right-icon");
 
   function sidebarClosed() {
     todoTab.classList.add("closed");
-
-    todoTab.animate({ translate: [0, "235px"] });
+    todoTab.style.translate = "235px";
     memo.style.display = "none";
     todoArea.style.display = "none";
     todoTilte.style.display = "none";
-    badge.style.display = "block";
+    if (badge.textContent == 0) {
+      badge.style.display = "none";
+    } else {
+      badge.style.display = "block";
+    }
     btnImg.src = "/workclover/assets/images/todolist-menu-icon.png";
   }
-
   sidebarClosed();
 
   function tabManager() {
@@ -36,7 +47,11 @@ document.addEventListener("DOMContentLoaded", () => {
       memo.style.display = "none";
       todoArea.style.display = "none";
       todoTilte.style.display = "none";
-      badge.style.display = "block";
+      if (badge.textContent == "0") {
+        badge.style.display = "none";
+      } else {
+        badge.style.display = "block";
+      }
       btnImg.src = "/workclover/assets/images/todolist-menu-icon.png";
     } else if (currentState == "todolist-container closed") {
       todoTab.classList.remove("closed");
@@ -57,7 +72,9 @@ document.addEventListener("DOMContentLoaded", () => {
   buttonClick();
 
   const inputTodo = document.querySelector(".todolist-input-box");
+
   const checkTodo = document.querySelector(".checkbox-todolist");
+
   const todoInput = document.querySelector(".todolist-input");
 
   function hideInput() {
@@ -107,9 +124,13 @@ document.addEventListener("DOMContentLoaded", () => {
       setBadgenumber();
     });
     item.appendChild(checkBox);
+
     item.appendChild(todoText);
+
     item.appendChild(removeBtn);
+
     item.appendChild(checkBoxDesign);
+
     item.addEventListener("mouseover", (e) => {
       removeBtn.style.display = "inline-block";
     });
@@ -119,6 +140,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     todoList.appendChild(item);
+
     todoInput.value = "";
     hideInput();
     setBadgenumber();
