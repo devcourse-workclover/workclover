@@ -33,6 +33,14 @@
   margin-bottom: 20px;
   cursor: pointer;
   font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.add-page-btn img {
+  width: 30px;
+  height: 30px;
 }
 
 .search-page-input {
