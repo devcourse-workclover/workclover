@@ -1,4 +1,6 @@
 import { getDocument } from "../apis/getDocuments.js";
+import { updateDocument } from "../apis/updateDocument.js";
+import { viewPageList } from "./pageManager.js";
 
 export async function viewDocument(id) {
   const main = document.querySelector(".document");
@@ -9,6 +11,15 @@ export async function viewDocument(id) {
 
   main.append(title);
   main.append(content);
+
+  title.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") title.blur();
+  });
+
+  title.addEventListener("blur", async (e) => {
+    await updateDocument(id, title.textContent);
+    viewPageList();
+  });
 }
 
 function createEditable(cls, data) {
