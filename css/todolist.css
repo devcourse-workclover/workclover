@@ -18,9 +18,10 @@
 .todolist-right-btn {
   border: none;
   background-color: transparent;
-  width: 50px;
-  height: 50px;
-  margin-bottom: 40px;
+  width: 40px;
+  height: 40px;
+  margin-bottom: 30px;
+  cursor: pointer;
 }
 
 /* 오른쪽으로 접는 아이콘 */
@@ -34,25 +35,63 @@
   display: flex;
   align-items: center;
   margin-left: 20px;
+  cursor: pointer;
 }
 
 /* 투두리스트 제목 */
 .todolist-top-title {
-  font-size: 25px;
+  font-size: 20px;
 }
 
 /* 투두리스트 추가하기 버튼 */
 .todolist-add-btn {
-  width: 40px;
-  height: 30px;
+  width: 30px;
+  height: 20px;
   border: none;
   background-color: transparent;
+  cursor: pointer;
 }
 
 /* 투두리스트 추가하기 아이콘 */
 .todolist-add-icon {
   width: 100%;
   height: 100%;
+}
+
+.todolist-content {
+  margin-top: 15px;
+  margin-left: 20px;
+}
+
+.checkbox-todolist {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.todolist-icon {
+  position: absolute;
+  opacity: 0;
+}
+
+.todolist-circle-icon {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  border: 2px solid green;
+  display: inline-block;
+}
+
+.todolist-content {
+  display: flex;
+  gap: 10px;
+}
+
+.todolist-input {
+  outline: none;
+  border: none;
+  background-color: transparent;
+  border-bottom: 1px solid #838383;
 }
 
 /* 투두리스트 할 일에 호버 시 등장하는 x 버튼 */
@@ -91,4 +130,5 @@
   background-color: #e0e0e0;
   font-size: 15px;
   overflow-y: scroll;
+  resize: none;
 }
