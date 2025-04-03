@@ -1,0 +1,94 @@
+/* 투두리스트 전체 */
+.todolist-container {
+  width: 300px;
+  background-color: #f2f2f2;
+  box-shadow: 0 0px 15px rgba(0, 0, 0, 0.13);
+  position: fixed;
+  right: 0;
+}
+
+.todolist {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+/* 오른쪽으로 접는 아이콘의 버튼 */
+.todolist-right-btn {
+  border: none;
+  background-color: transparent;
+  width: 50px;
+  height: 50px;
+  margin-bottom: 40px;
+}
+
+/* 오른쪽으로 접는 아이콘 */
+.todolist-right-icon {
+  width: 100%;
+  height: 100%;
+}
+
+/* 투두리스트 제목과 추가하기 버튼 */
+.todolist-top {
+  display: flex;
+  align-items: center;
+  margin-left: 20px;
+}
+
+/* 투두리스트 제목 */
+.todolist-top-title {
+  font-size: 25px;
+}
+
+/* 투두리스트 추가하기 버튼 */
+.todolist-add-btn {
+  width: 40px;
+  height: 30px;
+  border: none;
+  background-color: transparent;
+}
+
+/* 투두리스트 추가하기 아이콘 */
+.todolist-add-icon {
+  width: 100%;
+  height: 100%;
+}
+
+/* 투두리스트 할 일에 호버 시 등장하는 x 버튼 */
+.todolist-delete-btn {
+  border: none;
+  display: none;
+}
+
+/* 메모 */
+.memo {
+  position: absolute;
+  bottom: 0;
+}
+
+.memo-title-box {
+  width: 60px;
+  height: 30px;
+  background-color: #e0e0e0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.memo-title {
+  opacity: 0.5;
+}
+
+/* 메모 텍스트 박스 */
+#memo-text-box {
+  border: none;
+  outline: none;
+  width: 300px;
+  height: 300px;
+  background-color: #e0e0e0;
+  font-size: 15px;
+  overflow-y: scroll;
+}
