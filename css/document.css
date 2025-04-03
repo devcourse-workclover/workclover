@@ -34,13 +34,15 @@
 .document-title {
   font-size: 50px;
   opacity: 0.5;
-  outline: none;
+  padding-top: 5px;
+  padding-left: 5px;
+  padding-bottom: 5px;
+  width: 700px;
 }
 
 .document-title:empty:before {
   color: #aaa;
   position: absolute;
-  pointer-events: none;
 }
 
 .document-content {
