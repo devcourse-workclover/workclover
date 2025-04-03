@@ -92,11 +92,10 @@
   margin-bottom: 10px;
 }
 
-/* 문서 리스트
-document-list-container {
-  flex: 1;
+.document-list-container {
+  height: 100%;
   overflow-y: auto;
-} */
+}
 
 .document-list {
   list-style: none;
