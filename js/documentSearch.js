@@ -24,7 +24,7 @@ function searchAllDocuments(data, inputValue) {
     }
     if (document.documents && document.documents.length > 0) {
       const childDocuments = searchAllDocuments(document.documents, inputValue);
-      console.log(childDocuments);
+
       filteredList = filteredList.concat(childDocuments);
     }
   }
