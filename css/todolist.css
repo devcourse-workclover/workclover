@@ -78,7 +78,6 @@
 .todolist-add-icon {
   width: 100%;
   height: 100%;
-  cursor: pointer;
 }
 
 .todolist-content {
@@ -95,6 +94,7 @@
 .todolist-icon {
   position: absolute;
   opacity: 0;
+  cursor: pointer;
 }
 
 .todolist-circle-icon {
