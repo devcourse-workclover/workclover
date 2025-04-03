@@ -1,17 +1,20 @@
-export function viewDocument(documentInfo) {
+import { getDocument } from "../apis/getDocuments.js";
+
+export async function viewDocument(id) {
   const main = document.querySelector(".document");
   main.innerHTML = "";
+  const data = await getDocument(id);
+  const title = createEditable("title", data);
+  const content = createEditable("content", data);
 
-  const title = createEditable("title");
-  const content = createEditable("content");
   main.append(title);
   main.append(content);
 }
 
-function createEditable(cls) {
+function createEditable(cls, data) {
   const div = document.createElement("div");
   div.contentEditable = true;
-  div.textContent = documentInfo.div;
-  div.classList.add(cls);
+  div.textContent = data[cls];
+  div.classList.add(`document-${cls}`);
   return div;
 }

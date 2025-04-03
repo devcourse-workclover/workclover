@@ -35,7 +35,7 @@ function setPageList(pages, parent) {
 
     anchorElement.addEventListener("click", (e) => {
       e.preventDefault();
-      viewDocument(page);
+      viewDocument(page.id);
     });
 
     liElement.append(anchorElement);
