@@ -131,7 +131,7 @@
 .trash-modal:modal {
   position: fixed;
   width: 180px;
-  height: 176px;
+  max-height: 176px;
   bottom: 0;
   right: 0;
   left: 200px;
