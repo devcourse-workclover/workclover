@@ -14,6 +14,19 @@ document.addEventListener("DOMContentLoaded", () => {
   const todoList = document.querySelector(".todolist-list");
   let btnImg = document.querySelector(".todolist-right-icon");
 
+  function sidebarClosed() {
+    todoTab.classList.add("closed");
+
+    todoTab.animate({ translate: [0, "235px"] });
+    memo.style.display = "none";
+    todoArea.style.display = "none";
+    todoTilte.style.display = "none";
+    badge.style.display = "block";
+    btnImg.src = "/workclover/assets/images/todolist-menu-icon.png";
+  }
+
+  sidebarClosed();
+
   function tabManager() {
     const currentState = todoTab.className;
     if (currentState !== "todolist-container closed") {
@@ -52,55 +65,16 @@ document.addEventListener("DOMContentLoaded", () => {
     checkTodo.style.display = "none";
   }
 
+  hideInput();
+
   // 추가 버튼 클릭 시 추가창 표시
   addTodo.addEventListener("click", () => {
     inputTodo.style.display = "block";
     checkTodo.style.display = "block";
-  });
-  // 엔터 입력 시 추가창 숨김
-
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Enter") {
-      e.preventDefault();
-      const item = document.createElement("li");
-      const checkBox = document.createElement("input");
-      checkBox.setAttribute("type", "checkbox");
-      checkBox.classList.add("todolist-icon");
-      const todoText = document.createElement("span");
-      todoText.textContent = todoInput.value;
-      const removeBtn = document.createElement("button");
-      removeBtn.textContent = "x";
-      removeBtn.classList.add("todolist-delete-btn");
-      // removeBtn.style.display = "inline-flex";
-      const checkBoxDesign = document.createElement("span");
-      checkBoxDesign.classList.add("todolist-circle-icon");
-      removeBtn.addEventListener("click", (e) => {
-        e.currentTarget.parentNode.parentNode.removeChild(
-          e.currentTarget.parentNode
-        );
-      });
-      checkBox.addEventListener("change", (e) => {
-        if (checkBox.checked) {
-          todoText.style.textDecorationLine = "line-through";
-        } else {
-          todoText.style.textDecorationLine = "none";
-        }
-        setBadgenumber();
-      });
-      item.appendChild(checkBox);
-      item.appendChild(todoText);
-      item.appendChild(removeBtn);
-      todoList.appendChild(item);
-      todoInput.value = "";
-      hideInput();
-      setBadgenumber();
-    }
+    todoInput.focus();
   });
 
-  todoInput.addEventListener("change", updateValue);
-
-  function updateValue(e) {
-    e.preventDefault();
+  function inputManager() {
     const item = document.createElement("li");
 
     const checkBox = document.createElement("input");
@@ -149,6 +123,110 @@ document.addEventListener("DOMContentLoaded", () => {
     hideInput();
     setBadgenumber();
   }
+
+  function enterDown() {
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        if (todoInput.value.length == 0) {
+          hideInput();
+          return;
+        } else {
+          inputManager();
+        }
+      }
+    });
+    setBadgenumber();
+  }
+
+  enterDown();
+
+  todoInput.addEventListener("change", () => {
+    hideInput();
+    inputManager();
+  });
+  // document.addEventListener("keydown", (e) => {
+  //   if (e.key === "Enter") {
+  //     // e.preventDefault();
+  //     // const item = document.createElement("li");
+  //     // const checkBox = document.createElement("input");
+  //     // checkBox.setAttribute("type", "checkbox");
+  //     // checkBox.classList.add("todolist-icon");
+  //     // const todoText = document.createElement("span");
+  //     // todoText.textContent = todoInput.value;
+  //     // const removeBtn = document.createElement("button");
+  //     // removeBtn.textContent = "x";
+  //     // removeBtn.classList.add("todolist-delete-btn");
+  //     // // removeBtn.style.display = "inline-flex";
+  //     // const checkBoxDesign = document.createElement("span");
+  //     // checkBoxDesign.classList.add("todolist-circle-icon");
+  //     // removeBtn.addEventListener("click", (e) => {
+  //     //   e.currentTarget.parentNode.parentNode.removeChild(
+  //     //     e.currentTarget.parentNode
+  //     //   );
+  //     // });
+  //     // checkBox.addEventListener("change", (e) => {
+  //     //   if (checkBox.checked) {
+  //     //     todoText.style.textDecorationLine = "line-through";
+  //     //   } else {
+  //     //     todoText.style.textDecorationLine = "none";
+  //     //   }
+  //     //   setBadgenumber();
+  //     // });
+  //     // item.appendChild(checkBox);
+  //     // item.appendChild(todoText);
+  //     // item.appendChild(removeBtn);
+  //     // todoList.appendChild(item);
+  //     // todoInput.value = "";
+  //     // hideInput();
+  //     // setBadgenumber();
+  //   }
+  // });
+
+  // todoInput.addEventListener("change", updateValue);
+
+  // function updateValue(e) {
+  //   // e.preventDefault();
+  //   // const item = document.createElement("li");
+  //   // const checkBox = document.createElement("input");
+  //   // checkBox.setAttribute("type", "checkbox");
+  //   // checkBox.classList.add("todolist-icon");
+  //   // const todoText = document.createElement("span");
+  //   // todoText.textContent = todoInput.value;
+  //   // const removeBtn = document.createElement("button");
+  //   // removeBtn.textContent = "x";
+  //   // removeBtn.classList.add("todolist-delete-btn");
+  //   // const checkBoxDesign = document.createElement("span");
+  //   // checkBoxDesign.classList.add("todolist-circle-icon");
+  //   // removeBtn.addEventListener("click", (e) => {
+  //   //   e.currentTarget.parentNode.parentNode.removeChild(
+  //   //     e.currentTarget.parentNode
+  //   //   );
+  //   //   setBadgenumber();
+  //   // });
+  //   // checkBox.addEventListener("change", (e) => {
+  //   //   if (checkBox.checked) {
+  //   //     todoText.style.textDecorationLine = "line-through";
+  //   //   } else {
+  //   //     todoText.style.textDecorationLine = "none";
+  //   //   }
+  //   //   setBadgenumber();
+  //   // });
+  //   // item.appendChild(checkBox);
+  //   // item.appendChild(todoText);
+  //   // item.appendChild(removeBtn);
+  //   // item.appendChild(checkBoxDesign);
+  //   // item.addEventListener("mouseover", (e) => {
+  //   //   removeBtn.style.display = "inline-block";
+  //   // });
+  //   // item.addEventListener("mouseleave", (e) => {
+  //   //   removeBtn.style.display = "none";
+  //   // });
+  //   // todoList.appendChild(item);
+  //   // todoInput.value = "";
+  //   // hideInput();
+  //   // setBadgenumber();
+  // }
 
   function setBadgenumber() {
     const todolistItems = todoList.querySelectorAll(".todolist-icon");
