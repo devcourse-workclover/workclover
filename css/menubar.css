@@ -107,6 +107,10 @@
 
 .document-list a {
   text-decoration: none;
+  white-space: nowrap;
+  overflow: hidden;
+  display: inline-block;
+  max-width: calc(80% - 30px); /* 아이콘 공간 확보 (36~40px 추천) */
 }
 
 .document-item {
@@ -132,10 +136,13 @@
 
 .show-sublist-btn {
   position: absolute;
-  transform: translate(70%, -105%);
-}
-
-.document-item * {
+  transform: translate(600%, -100%);
+  background-image: url('../assets/images/chevron-right-icon.png');
+  width: 25px;
+  height: 25px;
+  color: transparent; /* 잠깐 하위 페이지 토글 가려놓기 */
+  background-size: cover;
+  cursor: pointer;
   background-color: transparent;
 }
 
