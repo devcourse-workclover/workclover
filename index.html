@@ -19,7 +19,9 @@
         <!-- 메뉴바에 있는 페이지 추가와 검색 버튼 -->
         <div class="menubar-controls">
           <button class="add-page-btn">페이지 추가</button>
-          <button class="search-page-btn">검색</button>
+          <form class="search-page-form">
+            <input type="text" class="search-page-input" placeholder="검색" />
+          </form>
         </div>
 
         <!-- Work Space -->
@@ -32,16 +34,20 @@
 
         <!-- 휴지통 -->
         <div class="menubar-trashbin">
-          <!-- 휴지통 아이콘 -->
+          <button class="trashbin-icon">
+            <img src="./assets/images/delete-icon.png" alt="휴지통 아이콘" />
+          </button>
           <span>휴지통</span>
         </div>
 
         <!-- 프로필 -->
         <div class="menubar-profile">
           <div class="profile-layout">
-            <img src="" alt="프로필 사진" />
-            <p>박서영</p>
+            <span class="profile-img-background">
+              <img src="./assets/images/profile-icon.png" alt="프로필 사진" />
+            </span>
           </div>
+          <p>박서영</p>
         </div>
       </aside>
 
@@ -61,50 +67,59 @@
       </main>
 
       <!-- 우측 투두리스트 -->
-      <aside class="todolist-container todolist-closed">
+      <aside class="todolist-container">
         <div class="todolist">
           <button class="todolist-right-btn">
             <img
-              src="./images/arrow-right-icon.png"
+              src="./assets/images/arrow-right.png"
               alt="오른쪽 화살표 아이콘"
               class="todolist-right-icon" />
+            <span class="badge" id="todolist-count"></span>
           </button>
 
-          <!-- 투두리스트 제목과 추가하기 버튼 -->
-          <div class="todolist-top">
-            <span class="todolist-top-title">Todo List</span>
+          <div class="todolist-menu">
+            <!-- 투두리스트 제목과 추가하기 버튼 -->
+            <div class="todolist-top">
+              <span class="todolist-top-title">Todo List</span>
 
-            <button class="todolist-add-btn">
-              <img
-                src="./images/add-icon.png"
-                alt="추가하기 아이콘"
-                class="todolist-add-icon" />
-            </button>
-          </div>
-
-          <!-- 입력창과 할 일 생성 -->
-          <div class="todolist-box">
-            <!-- 아이콘 + 할 일 텍스트 -->
-            <div class="todolist-content">
-              <input type="checkbox" class="todolist-icon" />
-              <input type="text" class="todolist-input" />
+              <button class="todolist-add-btn">
+                <img
+                  src="./assets/images/add-icon.png"
+                  alt="추가하기 아이콘"
+                  class="todolist-add-icon" />
+              </button>
             </div>
 
-            <!-- 삭제 버튼 -->
-            <button class="todolist-delete-btn">x</button>
-          </div>
+            <!-- 입력창과 할 일 생성 -->
+            <div class="todolist-box">
+              <!-- 아이콘 + 할 일 텍스트 -->
+              <div class="todolist-content">
+                <label class="checkbox-todolist">
+                  <input type="checkbox" class="todolist-icon" />
+                  <span class="todolist-circle-icon"></span>
+                </label>
 
-          <!-- 하단, 메모장 -->
-          <div class="memo">
-            <div class="memo-title-box">
-              <span class="memo-title">memo</span>
+                <form class="todolist-input-box">
+                  <input type="text" class="todolist-input" />
+                </form>
+              </div>
+
+              <!-- 삭제 버튼 -->
+              <button class="todolist-delete-btn">x</button>
             </div>
 
-            <!-- 메모장에 텍스트 입력 -->
-            <textarea
-              name="메모장"
-              id="memo-text-box"
-              maxlength="1000"></textarea>
+            <!-- 하단, 메모장 -->
+            <div class="memo">
+              <div class="memo-title-box">
+                <span class="memo-title">memo</span>
+              </div>
+
+              <!-- 메모장에 텍스트 입력 -->
+              <textarea
+                name="메모장"
+                id="memo-text-box"
+                maxlength="1000"></textarea>
+            </div>
           </div>
         </div>
       </aside>
