@@ -1,4 +1,4 @@
-import { BASE_URL } from "./getDocuments";
+import { BASE_URL } from "./getDocuments.js";
 
 export const trashcan = "trashcan";
 
@@ -17,7 +17,7 @@ export async function getTrashList() {
 }
 
 // 휴지통으로 이동 (휴지통에 post)
-export async function addTrash(parent) {
+export async function postTrash(parent) {
   const response = await fetch(`${BASE_URL}/documents`, {
     method: "POST",
     headers: {
