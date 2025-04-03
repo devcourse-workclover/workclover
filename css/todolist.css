@@ -80,9 +80,16 @@
   height: 100%;
 }
 
+.todolist-box {
+  margin-top: 20px;
+  display: none;
+}
+
 .todolist-content {
   margin-top: 15px;
   margin-left: 20px;
+  display: flex;
+  gap: 10px;
 }
 
 .checkbox-todolist {
@@ -98,16 +105,11 @@
 }
 
 .todolist-circle-icon {
-  width: 15px;
-  height: 15px;
+  width: 13px;
+  height: 13px;
   border-radius: 50%;
-  border: 2px solid green;
+  border: 2px solid #2c4a35;
   display: inline-block;
-}
-
-.todolist-content {
-  display: flex;
-  gap: 10px;
 }
 
 .todolist-input {
