@@ -1,5 +1,5 @@
-const BASE_URL = "https://kdt-api.fe.dev-cos.com";
-const USERNAME = "workclover";
+export const BASE_URL = "https://kdt-api.fe.dev-cos.com";
+export const USERNAME = "workclover";
 
 export async function getDocuments() {
   const response = await fetch(`${BASE_URL}/documents`, {

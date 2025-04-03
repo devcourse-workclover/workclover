@@ -1,5 +1,4 @@
-const BASE_URL = "https://kdt-api.fe.dev-cos.com";
-const USERNAME = "workclover";
+import { BASE_URL, USERNAME } from "./getDocuments.js";
 
 export async function addDocument(parent = null) {
   const response = await fetch(`${BASE_URL}/documents`, {
