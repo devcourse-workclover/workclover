@@ -95,7 +95,6 @@ function setPageList(pages, parent) {
       const data = await getDocument(id);
       const title = data.title;
       const content = await data.content;
-      // const trashDocumentContent = await getTrashItem(id);
 
       // delete document
       await deleteDocument(id);
