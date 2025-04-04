@@ -87,9 +87,9 @@
 }
 
 .document-list-container {
-  height: 330px;
+  /* height: 330px; */
   overflow-y: auto;
-  padding-bottom: 50px;
+  margin-bottom: 80px;
 }
 
 .document-list {
@@ -138,7 +138,7 @@
   position: absolute;
   position: absolute;
   left: 0;
-  background-image: url('../assets/images/chevron-right-icon.png');
+  background-image: url("../assets/images/chevron-right-icon.png");
   width: 25px;
   height: 25px;
   color: transparent;
@@ -178,13 +178,13 @@
   display: none;
   gap: 10px;
   flex-direction: column;
-  z-index: 999;
+  z-index: 9999px;
   cursor: pointer;
 }
 
 /* 메뉴바 프로필 */
 .menubar-profile {
-  position: absolute;
+  /* position: fixed; */
   bottom: 0;
   width: 250px;
   height: 75px;
