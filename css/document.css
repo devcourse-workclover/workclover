@@ -45,6 +45,7 @@
   margin-top: 100px;
   padding-left: 100px;
   width: 900px;
+  font-weight: 700;
 }
 
 .document-title:focus,
@@ -53,7 +54,7 @@
 }
 
 .document-title:empty:before {
-  color: #999;
+  color: #aaa;
   content: "새 페이지";
   pointer-events: none;
 }
@@ -66,7 +67,7 @@
 }
 
 .document-content:empty:before {
-  color: #999;
+  color: #aaa;
   content: "내용을 입력해주세요";
   pointer-events: none;
 }
