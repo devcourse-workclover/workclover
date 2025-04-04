@@ -81,13 +81,15 @@
 .todolist-content {
   margin-top: 15px;
   margin-left: 20px;
+  margin-right: 20px;
   display: flex;
+  /* flex-direction: column; */
   gap: 10px;
 }
 
 .checkbox-todolist {
   position: relative;
-  display: inline-block;
+  /* display: inline-block; */
   cursor: pointer;
 }
 
