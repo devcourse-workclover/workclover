@@ -29,7 +29,7 @@ export async function viewDocument(id) {
     "input",
     debounce(() => {
       updateDocument(id, null, content.textContent);
-    }, 2000)
+    }, 1000)
   );
   if (data.documents.length > 0) {
     getSubdocumentLinks(data.documents);
