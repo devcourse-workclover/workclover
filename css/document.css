@@ -1,6 +1,8 @@
 .document {
   display: flex;
   flex-direction: column;
+  width: 60%;
+  position: relative;
 }
 
 .welcome-document {
@@ -39,6 +41,7 @@
   font-size: 50px;
   margin-top: 100px;
   padding-left: 100px;
+  width: 100%;
 }
 
 .document-title:focus,
@@ -47,19 +50,30 @@
 }
 
 .document-title:empty:before {
-  color: #aaa;
-  position: absolute;
+  color: #999;
+  content: "새 페이지";
+  pointer-events: none;
 }
 
 .document-content {
-  margin-top: 40px;
+  padding-top: 40px;
   padding-left: 100px;
-  height: 20px;
+  height: 100%;
+  width: 100%;
+}
+
+.document-content:empty:before {
+  color: #999;
+  content: "내용을 입력해주세요";
+  pointer-events: none;
 }
 
 .sub-document-link-list {
-  border-top: 1px solid #d6d6d6;
+  position: absolute;
+  bottom: 0;
+  left: 0;
   display: flex;
+  margin-bottom: 10px;
 }
 .sub-document-link-item {
   border-right: 1px solid #d6d6d6;
@@ -68,6 +82,7 @@
   border-right: none;
 }
 .sub-document-link-item a {
+  border-radius: 5px;
   font-size: 13px;
   padding: 7px 30px;
   display: block;
