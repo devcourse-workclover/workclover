@@ -3,8 +3,6 @@
   flex-direction: column;
   width: 100%;
   position: relative;
-  align-items: center;
-  justify-content: flex-start;
   height: 100%;
 }
 
@@ -42,8 +40,8 @@
 
 .document-title {
   font-size: 50px;
-  margin-top: 100px;
-  padding-left: 100px;
+  margin-top: 200px;
+  padding-left: 150px;
   width: 900px;
   font-weight: 700;
 }
@@ -61,9 +59,10 @@
 
 .document-content {
   padding-top: 40px;
-  padding-left: 100px;
+  padding-left: 150px;
   width: 900px;
   height: 100%;
+  line-height: 1.4;
 }
 
 .document-content:empty:before {
@@ -76,6 +75,7 @@
   display: flex;
   margin-bottom: 10px;
   justify-self: center;
+  margin-left: 150px;
 }
 .sub-document-link-item {
   border-right: 1px solid #d6d6d6;
