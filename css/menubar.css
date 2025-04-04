@@ -117,12 +117,6 @@
   position: relative;
 }
 
-.pageTitle {
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  border: 1px solid blue;
-}
-
 .document-item a {
   display: flex;
   align-items: center;
@@ -134,6 +128,9 @@
   border: 1px solid red;
   padding-right: 30px;
   overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: #4c4a4a;
 }
 
 .document-item a:hover {
@@ -174,10 +171,6 @@
   display: block;
 }
 
-.document-item:hover .moreBtn {
-  display: block;
-}
-
 .morebox {
   background-color: white;
   padding: 8px 16px;
@@ -190,10 +183,6 @@
   flex-direction: column;
   z-index: 999;
   cursor: pointer;
-}
-
-.document-sub-list:hover {
-  border-radius: 10px;
 }
 
 /* 메뉴바 프로필 */
