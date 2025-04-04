@@ -6,6 +6,7 @@ import { viewDocument } from "./document.js";
 import { router } from "./router.js";
 import { postTrash } from "../apis/trashCan.js";
 import { editTrashDocumentContent } from "../apis/trashCan.js";
+import { getTrashItem, getTrashList } from "../apis/trashCan.js";
 
 window.addEventListener("DOMContentLoaded", () => {
   const newDocumentBtn = document.querySelector(".new-document");
@@ -93,15 +94,17 @@ function setPageList(pages, parent) {
       e.preventDefault();
       const data = await getDocument(id);
       const title = data.title;
-      const content = data.content;
-      await editTrashDocumentContent(id, title, "hi");
+      const content = await data.content;
+      // const trashDocumentContent = await getTrashItem(id);
 
       // delete document
       await deleteDocument(id);
       viewPageList();
 
       //  post to trashcan
-      await postTrash(title);
+      const trashData = await postTrash(title);
+
+      await editTrashDocumentContent(trashData.id, title, content);
       moreBox.style.display = "none";
     };
 

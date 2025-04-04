@@ -70,7 +70,7 @@ export async function editTrashDocumentContent(
   if (!response.ok) {
     throw new Error("Network response is not ok!");
   }
-   return await response.json();
+  return await response.json();
 }
 
 export async function getTrashItem(documentId) {

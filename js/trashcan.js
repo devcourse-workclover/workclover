@@ -3,7 +3,6 @@ import { completeDeleteDocuments } from "../apis/completeDeleteDocuments.js";
 import { addDocument } from "../apis/addDocument.js";
 import { viewPageList } from "./pageManager.js";
 import { updateDocument } from "../apis/updateDocument.js";
-import { getDocuments } from "../apis/getDocuments.js";
 import { getTrashItem } from "../apis/trashCan.js";
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -33,13 +32,12 @@ document.addEventListener("DOMContentLoaded", () => {
       div.append(restore, completeDelete);
       li.append(div);
       trashList.appendChild(li);
-      restore.addEventListener("click", async () => {
-        await addDocument();
-        const trashDocumentContent = await getTrashItem(item.id);
 
-        let documentList = await getDocuments();
-        documentList = documentList[documentList.length - 1];
-        await updateDocument(documentList.id, item.title);
+      restore.addEventListener("click", async () => {
+        const data = await addDocument();
+        const contentData = await getTrashItem(item.id);
+        
+        await updateDocument(data.id, item.title, contentData.content);
         await viewPageList();
         await completeDeleteDocuments(item.id);
         viewTrashList();

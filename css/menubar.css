@@ -264,7 +264,7 @@
   border-radius: 4px;
   margin: 0;
   outline: none;
-  overflow: scroll;
+  overflow: auto;
 }
 
 .trash-list {
