@@ -86,6 +86,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   buttonClick();
 
+  const todolistContent = document.querySelector(".todolist-content");
   const inputTodo = document.querySelector(".todolist-input-box");
 
   const checkTodo = document.querySelector(".checkbox-todolist");
@@ -95,14 +96,15 @@ document.addEventListener("DOMContentLoaded", () => {
   function hideInput() {
     inputTodo.style.display = "none";
     checkTodo.style.display = "none";
+    todolistContent.style.marginBottom = "0px";
   }
 
   hideInput();
 
   // 추가 버튼 클릭 시 추가창 표시
   addTodo.addEventListener("click", () => {
+    todolistContent.style.marginBottom = "10px";
     inputTodo.style.display = "block";
-
     checkTodo.style.display = "block";
 
     todoInput.focus();
