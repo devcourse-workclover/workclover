@@ -1,4 +1,5 @@
 import { viewDocument } from "./document.js";
+import { router } from "./router.js";
 
 export function getSubdocumentLinks(documents) {
   const main = document.querySelector(".document");
@@ -16,6 +17,7 @@ export function getSubdocumentLinks(documents) {
     anchorElement.addEventListener("click", (e) => {
       e.preventDefault();
       viewDocument(doc.id);
+      router(e);
     });
 
     liElement.append(anchorElement);

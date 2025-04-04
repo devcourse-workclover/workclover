@@ -168,15 +168,13 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function enterDown() {
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Enter") {
-        e.preventDefault();
-        if (todoInput.value.length == 0) {
-          hideInput();
-          return;
-        } else {
-          inputManager();
-        }
+    inputTodo.addEventListener("submit", (e) => {
+      e.preventDefault();
+      if (todoInput.value.length == 0) {
+        hideInput();
+        return;
+      } else {
+        inputManager();
       }
     });
     setBadgenumber();
