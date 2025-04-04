@@ -6,7 +6,6 @@ import { viewDocument } from "./document.js";
 import { router } from "./router.js";
 import { postTrash } from "../apis/trashCan.js";
 import { editTrashDocumentContent } from "../apis/trashCan.js";
-import { getTrashItem, getTrashList } from "../apis/trashCan.js";
 
 window.addEventListener("DOMContentLoaded", () => {
   const newDocumentBtn = document.querySelector(".new-document");
