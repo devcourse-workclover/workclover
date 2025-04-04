@@ -7,7 +7,6 @@ window.addEventListener("DOMContentLoaded", () => {
 
   searchForm.addEventListener("submit", (event) => {
     event.preventDefault();
-    console.log("hi");
     const searchInput = document.querySelector(".search-page-input");
     const inputValue = searchInput.value.replace(/\s+/g, "");
 
