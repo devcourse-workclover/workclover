@@ -39,7 +39,9 @@ export async function viewDocument(id) {
 function createEditable(cls, data) {
   const div = document.createElement("div");
   div.contentEditable = true;
-  div.textContent = data[cls];
+  if (data.title !== "새 페이지") {
+    div.textContent = data[cls];
+  }
   div.classList.add(`document-${cls}`);
   return div;
 }
