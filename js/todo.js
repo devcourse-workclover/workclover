@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
       badge.style.display = "block";
     }
 
-    btnImg.src = "/workclover/assets/images/todolist-menu-icon.png";
+    btnImg.src = "./assets/images/todolist-menu-icon.png";
   }
 
   sidebarClosed();
@@ -63,7 +63,7 @@ document.addEventListener("DOMContentLoaded", () => {
         badge.style.display = "block";
       }
 
-      btnImg.src = "/workclover/assets/images/todolist-menu-icon.png";
+      btnImg.src = "./assets/images/todolist-menu-icon.png";
     } else if (currentState == "todolist-container closed") {
       todoTab.classList.remove("closed");
       todoTab.animate({ translate: ["235px", 0] }, tabOption);
@@ -76,7 +76,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       badge.style.display = "none";
 
-      btnImg.src = "/workclover/assets/images/arrow-right.png";
+      btnImg.src = "./assets/images/arrow-right.png";
     }
   }
 
