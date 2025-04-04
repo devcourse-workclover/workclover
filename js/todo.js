@@ -144,11 +144,11 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     item.appendChild(checkBox);
 
+    item.appendChild(checkBoxDesign);
+
     item.appendChild(todoText);
 
     item.appendChild(removeBtn);
-
-    item.appendChild(checkBoxDesign);
 
     item.addEventListener("mouseover", (e) => {
       removeBtn.style.display = "inline-block";
