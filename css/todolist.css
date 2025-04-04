@@ -105,6 +105,7 @@
   border-radius: 50%;
   border: 2px solid #2c4a35;
   display: inline-block;
+  margin-right: 10px;
 }
 
 .todolist-input {
@@ -118,6 +119,14 @@
 .todolist-delete-btn {
   border: none;
   display: none;
+  height: 13px;
+  width: 13px;
+}
+
+.todolist-list li {
+  margin-left: 20px;
+  margin-bottom: 10px;
+  align-items: center;
 }
 
 /* 메모 */

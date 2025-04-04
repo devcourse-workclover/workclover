@@ -136,8 +136,10 @@ document.addEventListener("DOMContentLoaded", () => {
     checkBox.addEventListener("change", (e) => {
       if (checkBox.checked) {
         todoText.style.textDecorationLine = "line-through";
+        checkBoxDesign.style.backgroundColor = "#bdd1be";
       } else {
         todoText.style.textDecorationLine = "none";
+        checkBoxDesign.style.backgroundColor = "transparent";
       }
 
       setBadgenumber();
