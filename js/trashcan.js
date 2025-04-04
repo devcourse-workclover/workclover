@@ -1,10 +1,15 @@
 import { getTrashDocuments } from "../apis/getTrashDocuments.js";
 import { completeDeleteDocuments } from "../apis/completeDeleteDocuments.js";
+import { addDocument } from "../apis/addDocument.js";
+import { viewPageList } from "./pageManager.js";
+import { updateDocument } from "../apis/updateDocument.js";
+import { getTrashItem } from "../apis/trashCan.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   const trashcanButton = document.querySelector(".menubar-trashbin");
   const trashTitle = document.querySelector(".menubar-trashbin span");
   const trashList = document.querySelector(".trash-list");
+  const dialog = document.querySelector(".trash-modal");
 
   trashcanButton.addEventListener("mouseenter", (e) => {
     trashTitle.style.borderBottom = "solid";
@@ -28,24 +33,29 @@ document.addEventListener("DOMContentLoaded", () => {
       li.append(div);
       trashList.appendChild(li);
 
+      restore.addEventListener("click", async () => {
+        const data = await addDocument();
+        const contentData = await getTrashItem(item.id);
+        
+        await updateDocument(data.id, item.title, contentData.content);
+        await viewPageList();
+        await completeDeleteDocuments(item.id);
+        viewTrashList();
+        dialog.close();
+      });
+
       completeDelete.addEventListener("click", async () => {
         await completeDeleteDocuments(item.id);
         viewTrashList();
       });
     });
-    console.log(trashData);
   }
 
-  const dialog = document.querySelector(".trash-modal");
   trashcanButton.addEventListener("click", () => {
     dialog.showModal();
     viewTrashList();
   });
   dialog.addEventListener("click", (e) => {
-    if (e.taraget === dialog) dialog.close();
+    if (e.target === dialog) dialog.close();
   });
-
-  // 복원
-
-  // 완전삭제
 });

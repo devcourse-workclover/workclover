@@ -1,10 +1,12 @@
 import { addDocument } from "../apis/addDocument.js";
-import { getDocuments } from "../apis/getDocuments.js";
+import { getDocuments, getDocument } from "../apis/getDocuments.js";
 import { updateDocument } from "../apis/updateDocument.js";
 import { deleteDocument } from "../apis/deleteDocument.js";
 import { viewDocument } from "./document.js";
 import { router } from "./router.js";
 import { postTrash } from "../apis/trashCan.js";
+import { editTrashDocumentContent } from "../apis/trashCan.js";
+import { getTrashItem, getTrashList } from "../apis/trashCan.js";
 
 window.addEventListener("DOMContentLoaded", () => {
   const newDocumentBtn = document.querySelector(".new-document");
@@ -90,13 +92,19 @@ function setPageList(pages, parent) {
 
     const handleDelete = async (e) => {
       e.preventDefault();
+      const data = await getDocument(id);
+      const title = data.title;
+      const content = await data.content;
+      // const trashDocumentContent = await getTrashItem(id);
 
       // delete document
       await deleteDocument(id);
       viewPageList();
 
       //  post to trashcan
-      await postTrash(id);
+      const trashData = await postTrash(title);
+
+      await editTrashDocumentContent(trashData.id, title, content);
       moreBox.style.display = "none";
     };
 
