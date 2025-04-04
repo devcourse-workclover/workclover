@@ -15,10 +15,6 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
-/* 
-.menubar-logo-text {
-  font-family: 'KaushanScript', cursive;
-} */
 
 /* 페이지 추가하기, 검색 버튼 */
 .menubar-controls {
@@ -93,7 +89,7 @@
 }
 
 .document-list-container {
-  height: 360px;
+  height: 330px;
   overflow-y: auto;
   padding-bottom: 50px;
 }
@@ -102,7 +98,6 @@
   list-style: none;
   display: flex;
   flex-direction: column;
-  /* margin-left: 35px; */
   padding-left: 15px;
   padding-right: 15px;
   opacity: 0.8;
@@ -110,10 +105,8 @@
 
 .document-list a {
   text-decoration: none;
-  white-space: nowrap;
   overflow: hidden;
   display: inline-block;
-  max-width: calc(100% - 20px); /* 아이콘 공간 확보 (36~40px 추천) */
 }
 
 .document-item {
@@ -124,6 +117,12 @@
   position: relative;
 }
 
+.pageTitle {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  border: 1px solid blue;
+}
+
 .document-item a {
   display: flex;
   align-items: center;
@@ -132,6 +131,9 @@
   height: 25px;
   color: rgb(44, 44, 44);
   padding-left: 30px;
+  border: 1px solid red;
+  padding-right: 30px;
+  overflow: hidden;
 }
 
 .document-item a:hover {
@@ -164,6 +166,16 @@
   top: 4px;
   border: none;
   background-color: transparent;
+  cursor: pointer;
+  display: none;
+}
+
+.document-item:hover .moreBtn {
+  display: block;
+}
+
+.document-item:hover .moreBtn {
+  display: block;
 }
 
 .morebox {
@@ -173,11 +185,11 @@
   position: fixed;
   left: 200px;
   border: 1px solid gray;
-  /* display: inline-flex; */
   display: none;
   gap: 10px;
   flex-direction: column;
   z-index: 999;
+  cursor: pointer;
 }
 
 .document-sub-list:hover {
@@ -252,14 +264,15 @@
   background: rgba(255, 255, 255, 0);
   color: none;
 }
+
 .trash-modal:modal {
   position: fixed;
   width: 180px;
   max-height: 176px;
   bottom: 0;
   right: 0;
-  left: 200px;
-  top: 700px;
+  left: 230px;
+  top: 530px;
   border: 1px solid #d7dcd5;
   border-radius: 4px;
   margin: 0;
