@@ -52,18 +52,18 @@
   outline: none;
 }
 
+.document-title:empty:before {
+  color: #aaa;
+  content: "새 페이지";
+  pointer-events: none;
+}
+
 .document-title.alertMessage::before {
   content: "제목을 입력해주세요";
   position: absolute;
   font-size: 15px;
   top: -30px;
   color: red;
-}
-
-.document-title:empty:before {
-  color: #aaa;
-  content: "새 페이지";
-  pointer-events: none;
 }
 
 .document-content {

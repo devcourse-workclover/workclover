@@ -3,7 +3,7 @@ import { BASE_URL, USERNAME } from "./getDocuments.js";
 export async function updateDocument(id, title = null, content = null) {
   const obj = {};
   if (title) obj.title = title;
-  if (content) obj.content = content;
+  if (content !== null) obj.content = content;
 
   const response = await fetch(`${BASE_URL}/documents/${id}`, {
     method: "PUT",

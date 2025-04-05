@@ -37,6 +37,12 @@ export async function viewDocument(id) {
       updateDocument(id, null, content.textContent);
     }, 1000)
   );
+  content.addEventListener("blur", (e) => {
+    if (e.target.textContent.trim() === "") {
+      e.target.textContent = "";
+      updateDocument(id, null, "");
+    }
+  });
   if (data.documents.length > 0) {
     getSubdocumentLinks(data.documents);
   }
