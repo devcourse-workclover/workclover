@@ -9,13 +9,37 @@ import { router } from "./router.js";
 window.addEventListener("DOMContentLoaded", () => {
   const newDocumentBtn = document.querySelector(".new-document");
   const addPageBtn = document.querySelector(".add-page-btn");
+  const menubarLogo = document.querySelector(".menubar-logo");
 
   addPageBtn.addEventListener("click", addDocumentAction);
 
   newDocumentBtn.addEventListener("click", addDocumentAction);
 
+  menubarLogo.addEventListener("click", getIndexPage);
+
   viewPageList();
 });
+
+window.addEventListener("keydown", (e) => {
+  if (e.key === "F5") {
+    e.preventDefault();
+    getIndexPage();
+  }
+});
+
+function getIndexPage() {
+  const main = document.querySelector(".document");
+  router("index.html");
+  main.innerHTML = `<div class="welcome-document">
+        <h1>
+          작은 행운들이 쌓이는 당신만의 워크스페이스.<br /><span
+            class="welcome-document-workclover"
+            >WorkClover</span
+          >에 오신 것을 환영합니다!
+        </h1>
+        <p>지금 바로 당신의 아이디어를 정리해 보세요.</p>
+      </div>`;
+}
 
 export async function viewPageList() {
   const documents = await getDocuments();
