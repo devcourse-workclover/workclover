@@ -8,11 +8,16 @@
 }
 
 .menubar-logo {
+  cursor: pointer;
   opacity: 0.3;
   position: absolute;
   top: 30px;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.menubar-logo:hover {
+  opacity: 0.6;
 }
 
 /* 페이지 추가하기, 검색 버튼 */
@@ -137,7 +142,7 @@
   position: absolute;
   position: absolute;
   left: 0;
-  background-image: url('../assets/images/chevron-right-icon.png');
+  background-image: url("../assets/images/chevron-right-icon.png");
   width: 25px;
   height: 25px;
   color: transparent;

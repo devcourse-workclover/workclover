@@ -39,9 +39,11 @@
 }
 
 .document-title {
+  position: relative;
   font-size: 50px;
   margin-top: 200px;
   padding-left: 150px;
+  padding-bottom: 40px;
   width: 900px;
   font-weight: 700;
 }
@@ -51,24 +53,23 @@
   outline: none;
 }
 
-.document-title:empty:before {
-  color: #aaa;
+.document-title:empty::before {
+  color: #999;
   content: "새 페이지";
-  pointer-events: none;
 }
 
-.document-content {
-  padding-top: 40px;
-  padding-left: 150px;
+.document-title.alertMessage::before {
+  content: "제목을 입력해주세요";
+  position: absolute;
+  font-size: 15px;
+  top: -30px;
+  color: red;
+}
+
+.document-content-box {
+  margin-left: 150px;
   width: 900px;
-  height: 100%;
   line-height: 1.4;
-}
-
-.document-content:empty:before {
-  color: #aaa;
-  content: "내용을 입력해주세요";
-  pointer-events: none;
 }
 
 .sub-document-link-list {
