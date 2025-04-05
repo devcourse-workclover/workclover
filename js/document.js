@@ -14,13 +14,19 @@ export async function viewDocument(id) {
   main.append(content);
 
   title.addEventListener("keydown", (e) => {
-    if (e.key === "Enter") title.blur();
-    if (e.target.textContent === 0 && e.key === "Backspace") {
+    e.target.classList.remove("alertMessage");
+    if (e.key === "Enter") {
       e.preventDefault();
+      title.blur();
     }
   });
 
-  title.addEventListener("blur", async () => {
+  title.addEventListener("blur", async (e) => {
+    if (e.target.textContent.trim() === "") {
+      e.target.focus();
+      e.target.classList.add("alertMessage");
+      return;
+    }
     await updateDocument(id, title.textContent);
     viewPageList();
   });

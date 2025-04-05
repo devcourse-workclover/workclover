@@ -39,6 +39,7 @@
 }
 
 .document-title {
+  position: relative;
   font-size: 50px;
   margin-top: 200px;
   padding-left: 150px;
@@ -49,6 +50,14 @@
 .document-title:focus,
 .document-content:focus {
   outline: none;
+}
+
+.document-title.alertMessage::before {
+  content: "제목을 입력해주세요";
+  position: absolute;
+  font-size: 15px;
+  top: -30px;
+  color: red;
 }
 
 .document-title:empty:before {
