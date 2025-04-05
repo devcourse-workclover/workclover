@@ -73,6 +73,8 @@
 }
 
 .sub-document-link-list {
+  position: absolute;
+  bottom: 0;
   display: flex;
   margin-bottom: 10px;
   justify-self: center;
