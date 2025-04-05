@@ -1,8 +1,14 @@
 import { viewDocument } from "./document.js";
 
 export function router(event) {
-  event.preventDefault();
-  window.history.pushState({}, "", event.target.href);
+  let target;
+  if (typeof event === "object") {
+    event.preventDefault();
+    target = event.target.href;
+  } else {
+    target = `${window.location.origin}/workclover/${event}`;
+  }
+  window.history.pushState({}, "", target);
   handleLocation();
 }
 

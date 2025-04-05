@@ -1,11 +1,10 @@
 import { addDocument } from "../apis/addDocument.js";
-import { getDocuments, getDocument } from "../apis/getDocuments.js";
-import { updateDocument } from "../apis/updateDocument.js";
 import { deleteDocument } from "../apis/deleteDocument.js";
+import { getDocument, getDocuments } from "../apis/getDocuments.js";
+import { editTrashDocumentContent, postTrash } from "../apis/trashCan.js";
+import { updateDocument } from "../apis/updateDocument.js";
 import { viewDocument } from "./document.js";
 import { router } from "./router.js";
-import { postTrash } from "../apis/trashCan.js";
-import { editTrashDocumentContent } from "../apis/trashCan.js";
 
 window.addEventListener("DOMContentLoaded", () => {
   const newDocumentBtn = document.querySelector(".new-document");
@@ -30,8 +29,10 @@ export async function viewPageList() {
 
 async function addDocumentAction(e) {
   e.preventDefault();
-  await addDocument();
+  const data = await addDocument();
   viewPageList();
+  viewDocument(data.id);
+  router(data.id);
 }
 
 function setPageList(pages, parent) {
